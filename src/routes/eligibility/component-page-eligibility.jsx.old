@@ -1,0 +1,40 @@
+import React, { PropTypes } from 'react';
+import Text from '../../components/text/container-text';
+import Courses from '../../components/courses/container-courses';
+import AcademicYear from '../../components/courses/academic-year/container-academic-year';
+import CourseRules from '../../components/courses/course-rules/container-course-rules';
+import Button from '../../components/button/component-button';
+import Header from '../../components/header/component-header';
+import rules from '../../resources/images/rules.png';
+import theme from '../../theme';
+
+const EligibilityPage = ({ onClickBack }) => (
+  <div id="page-eligibility" style={{ ...theme.column, ...theme.fillParent }} >
+    <Header />
+    <div style={{ ...theme.flexCenter, paddingTop: '1vmin' }}>
+      <Text id="text-eligibility" label="instruction.eligibility" style={{ ...theme.h3, color: theme.darkText }} />
+    </div>
+    <div style={{ ...theme.flexStart, justifyContent: 'flex-start', paddingTop: '0vmin', paddingLeft: '10vmin' }}>
+      <img style={{ width: '7vmin', height: '5vmin', paddingRight: '1vmin' }} src={rules} alt="logo-rules" />
+      <Text id="text-eligibility-check-list" label="instruction.eligibility.check.list" style={{ ...theme.h4, color: theme.darkText }} />
+    </div>
+    <div style={{ paddingLeft: '40vmin', paddingTop: '5vmin' }}>
+      <div style={{ ...theme.flexCenter, flex: 1, flexDirection: 'column', border: '3px solid green', paddingTop: '2vmin', paddingBottom: '5vmin', width: '70%', height: '350px', overflowY: 'auto' }}>
+        <Courses />
+        <br />
+        <AcademicYear />
+        <br />
+        <CourseRules />
+      </div>
+    </div>
+    <div style={{ ...theme.flexCenter, paddingTop: '2vmin', paddingBotton: '1vmin' }}>
+      <Button id="button-goback" label="button.go.back" handleClick={onClickBack} style={{ ...theme.buttonBig, ...theme.buttonPrimary }} />
+    </div>
+  </div>
+);
+
+EligibilityPage.propTypes = {
+  onClickBack: PropTypes.func.isRequired
+};
+
+export default EligibilityPage;
